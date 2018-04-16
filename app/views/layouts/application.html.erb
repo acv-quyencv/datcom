@@ -6,6 +6,22 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDN37aCCqf1jqC5QPHxhryXrmc3nngODCc",
+        authDomain: "datcom-115d9.firebaseapp.com",
+        databaseURL: "https://datcom-115d9.firebaseio.com",
+        projectId: "datcom-115d9",
+        storageBucket: "",
+        messagingSenderId: "268876521580"
+      };
+      // window.firebase = firebase.initializeApp(config);
+      firebase.initializeApp(config);
+
+    </script>
   </head>
 
   <body>
