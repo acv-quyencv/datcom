@@ -26,3 +26,7 @@
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+
+functions/node_modules
+functions/package-lock.json
+.firebaserc
