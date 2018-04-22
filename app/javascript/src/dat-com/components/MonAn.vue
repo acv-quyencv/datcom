@@ -2,7 +2,7 @@
   <div class='ds-mon_an'>
     <h1>DS mon</h1>
     <ul>
-      <li v-for="mon in dsMon" :key="mon.id" >
+      <li v-for="mon in dsMon" :key="mon" >
         <item :item="mon"/>
       </li>
     </ul>

@@ -1,8 +1,9 @@
 <template>
   <div class='mon-item'>
-    Name: {{ item.name }}
+    Name: {{ item }}
     <button>Edit</button>
-    <button @click="setMon(item.id)">Select</button>
+    <button @click="setMon(item)" v-if="!selected">Select</button>
+    <!-- <button @click="unsetMon(item)">Unselect</button> -->
   </div>
 </template>
 
@@ -14,26 +15,30 @@ export default {
   ],
 
   methods: {
-    setMon(item_id){
-      console.log(item_id)
+    setMon(item){
       let postData = {
-        user: 'quyencv',
-        mon: 'cha'
+        key: this.current_user,
+        val: item
       }
+      console.log(postData)
+      this.$store.dispatch('add_order', postData)
+      // let updates = {};
+      // let newPostKey = firebase.database().ref().child('orders').push().key;
+      // updates['/orders/' + newPostKey] = postData;
+      // return firebase.database().ref().update(updates);
 
-      let updates = {};
-      let newPostKey = firebase.database().ref().child('orders').push().key;
-      updates['/orders/' + newPostKey] = postData;
-
-      return firebase.database().ref().update(updates);
-      // Update store selectedUser + not_selectedUser
+      // Update order store
       // Disable all other select
     }
   },
 
   computed: {
-    current_user(){
+    selected(){
+      return this.$store.getters.selected
+    },
 
+    current_user(){
+      return this.$store.getters.current_user
     }
   }
 }

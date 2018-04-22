@@ -8,53 +8,77 @@ export default new Vuex.Store ({
   state: {
     users: [
       'quyencv',
-      'tamht'
+      'tamht',
+      'quy',
+      'loan'
     ],
+    ready_user: [],
+    unready_user: [],
     current_user: 'quyencv',
+    selected: false,
     dsMon: [
-      { id: 1, name: 'ca lu du' },
-      { id: 2, name: 'dau hu' },
-      { id: 3, name: 'ga chien' }
+      'ga chien',
+      'ca lu du'
     ],
-    selectedUsers: [
-      { user: 'quyencv', mon: 1 }
-    ],
-    not_selectedUsers: []
+    orders: {},
+    count_order: {}
   },
 
   mutations: {
-    // FETCH_TUTORIALS(state, tutorials){
-    //   state.tutorialLists = tutorials
-    // },
+    ADD_NEW(state, mon){
+      state.dsMon.push(mon)
+    },
 
-    // SELECT_TUTORIAL(state, tutorial){
-    //   console.log(tutorial)
-    //   state.selectedTutorial = tutorial
-    //   state.editMode = true
-    // }
+    ADD_ORDER(state, order){
+      // state.orders[order['key']] = order['val']
+      Vue.set(state.orders, order['key'], order['val'])
+
+      // for(obj in state.orders){
+      //   if
+      // }
+      // state.orders.push(order)
+      // Vue.set(state.orders, state.orders)
+      state.selected = true
+
+      // Update status user
+      if(state.ready_user.indexOf(order['key']) === -1){
+        state.ready_user.push(order['key'])
+      }
+      state.unready_user = state.users.filter(function(x) {
+        return state.ready_user.indexOf(x) < 0
+      })
+
+    },
+
+    LOGIN(state, user){
+      state.current_user = user
+      state.selected = false
+    }
   },
 
   actions : {
-    // fetch_tutorials({commit}){
-    //   axios.get('api/v1/tutorials')
-    //     .then(response => {
-    //       console.log(response.data)
-    //       commit('FETCH_TUTORIALS', response.data)
-    //     })
-    //     .catch(error => {
-    //       console.error(error);
-    //     });
-    // },
+    add_new({commit}, mon){
+      commit('ADD_NEW', mon)
+    },
 
-    // select_tutorial({commit}, tutorial){
-    //   commit('SELECT_TUTORIAL', tutorial)
-    // }
+    add_order({commit}, order){
+      commit('ADD_ORDER', order)
+    },
+
+    login({commit}, user){
+      commit('LOGIN', user)
+    }
 
   },
 
   getters: {
     dsMon: state => state.dsMon,
-    selectedUsers: state => state.selectedUsers,
-    not_selectedUsers: state => state.not_selectedUsers,
+    orders: state => state.orders,
+    selected: state => state.selected,
+    ready_user: state => state.ready_user,
+    unready_user: state => state.unready_user,
+    users: state => state.users,
+    current_user: state => state.current_user,
+    count_order: state => state.count_order
   }
 })

@@ -1,19 +1,21 @@
 <template>
-  <div class='order-final'>
+  <div class='order'>
     <h1>Order</h1>
-    <span class='ready-for-scan'>
-      <button>Ready for scan</button>
-    </span>
+    <ul>
+      <li v-for="(k, v) in orders" :key="k">
+         {{v}}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 
 export default {
-  // computed: {
-  //   dsMon(){
-  //     return this.$store.getters.dsMon
-  //   },
-  // }
+  computed: {
+    orders() {
+      return this.$store.getters.orders
+    }
+  }
 }
 </script>
