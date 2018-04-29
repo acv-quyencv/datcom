@@ -3,7 +3,7 @@
     <h1>Status</h1>
     <p>Ready:</p>
       <ul>
-        <li v-for="(user, index) in ready_user" :key="index"> {{user}}</li>
+        <li v-for="(user, index) in ready_user" :key="index"> {{user}}({{orders[user]}})</li>
       </ul>
     <br>
     <p>Not ready</p>
@@ -23,6 +23,10 @@ export default {
 
     unready_user(){
       return this.$store.getters.unready_user
+    },
+
+    orders() {
+      return this.$store.getters.orders
     }
   }
 }

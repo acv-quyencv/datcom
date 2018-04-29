@@ -1,10 +1,15 @@
 <template>
   <div class='ds-wrapper'>
-    <login />
-    <mon-an />
-    <add-new />
-    <status />
-    <order />
+    <div class='left-section column'>
+      <login />
+      <mon-an />
+      <add-new />
+    </div>
+
+    <div class="right-section column">
+      <status />
+      <order />
+    </div>
   </div>
 </template>
 
@@ -26,3 +31,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.ds-wrapper:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+.column{
+  float: left;
+  width: 50%;
+}
+</style>

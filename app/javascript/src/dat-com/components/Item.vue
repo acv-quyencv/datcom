@@ -20,15 +20,26 @@ export default {
         key: this.current_user,
         val: item
       }
-      console.log(postData)
-      this.$store.dispatch('add_order', postData)
-      // let updates = {};
-      // let newPostKey = firebase.database().ref().child('orders').push().key;
-      // updates['/orders/' + newPostKey] = postData;
-      // return firebase.database().ref().update(updates);
 
-      // Update order store
-      // Disable all other select
+      if(this.current_user === ''){
+        alert('Please login!')
+        return
+      }
+
+      let current_user = this.current_user
+
+      this.$store.dispatch('add_order', postData)
+
+      let order_data = {}
+      let updates = {}
+      let ref_order = firebase.database().ref().child('orders')
+
+      order_data[current_user] = item
+      ref_order.update(order_data)
+
+      // let newPostKey = firebase.database().ref().child('orders').push().key
+      // updates['/orders/' + 'list_orders'] = { 'ad' : 'sdsd'}
+      // firebase.database().ref().update(updates);
     }
   },
 

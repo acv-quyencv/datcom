@@ -1,13 +1,4 @@
 = javascript_pack_tag 'dat_com'
-
-= form_with model: User.new, url: login_path do |form|
-  .group-form
-    = form.label 'Email'
-    = form.select(:email, [['quyencv', 'quyencv@atmarkcafe.org'],])
-  .group-form
-    = form.label 'password'
-    = form.text_field :password
-  .submit
-    = form.submit 'Login'
+= stylesheet_pack_tag 'dat_com'
 
 #dat_com

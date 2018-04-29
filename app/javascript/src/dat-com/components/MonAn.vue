@@ -6,8 +6,6 @@
         <item :item="mon"/>
       </li>
     </ul>
-
-    <button> Them mon </button>
   </div>
 </template>
 
