@@ -17,7 +17,8 @@ export default new Vuex.Store ({
     selected: false,
     dsMon: [],
     orders: {},
-    count_orders: {}
+    count_orders: {},
+    isAdmin: false
   },
 
   mutations: {
@@ -81,6 +82,10 @@ export default new Vuex.Store ({
           Vue.set(state.count_orders, el, 1)
         }
       })
+    },
+
+    CHECK_ADMIN(state, isAdmin){
+      state.isAdmin = isAdmin
     }
   },
 
@@ -104,6 +109,10 @@ export default new Vuex.Store ({
 
     load_order({commit}, orders){
       commit('LOADORDER', orders)
+    },
+
+    check_admin({commit}, isAdmin){
+      commit('CHECK_ADMIN', isAdmin)
     }
 
   },
@@ -116,6 +125,7 @@ export default new Vuex.Store ({
     unready_user: state => state.unready_user,
     users: state => state.users,
     current_user: state => state.current_user,
-    count_orders: state => state.count_orders
+    count_orders: state => state.count_orders,
+    isAdmin: state => state.isAdmin
   }
 })

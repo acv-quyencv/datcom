@@ -30,6 +30,14 @@ export default {
     Status,
     AddNew,
     Login
+  },
+
+  mounted() {
+    let test_match = function(el){ return /datcom_user_id/.test(el) }
+    let arr_cok = document.cookie.split(';')
+    if(arr_cok.find(test_match)){
+      this.$store.dispatch('check_admin', true)
+    }
   }
 }
 </script>

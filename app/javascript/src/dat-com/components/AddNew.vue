@@ -1,5 +1,5 @@
 <template>
-  <div class='add-new'>
+  <div class='add-new' v-if="isAdmin">
     <h1>Them mon</h1>
     <div class='add-new-content'>
       <button @click="showForm">Addnew</button>
@@ -59,6 +59,10 @@ export default {
   computed: {
     dsMon(){
       return this.$store.getters.dsMon
+    },
+
+    isAdmin(){
+      return this.$store.getters.isAdmin
     }
   },
 

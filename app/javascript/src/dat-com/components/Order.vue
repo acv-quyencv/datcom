@@ -21,7 +21,9 @@ export default {
 
   mounted() {
     var cur_el = this
-    const ref_orders = firebase.database().ref().child('orders')
+    let todayNumber = (new Date()).getUTCDate()
+    let ranTodayKey = "RAND-ORDER-" + todayNumber
+    const ref_orders = firebase.database().ref().child('orders/'+ranTodayKey)
 
     ref_orders.on('value', function (snap) {
       console.log(snap.val())
@@ -31,7 +33,10 @@ export default {
 
     // #TODO:  don't remove on first time
     // Set button to reload order after login
-    ref_orders.remove()
+    // ref_orders.remove()
+    let randYTkey = "RAND-ORDER-" + (todayNumber - 1)
+    const ref_orders_yesterday = firebase.database().ref().child('orders/'+randYTkey)
+    ref_orders_yesterday.remove()
   }
 }
 </script>

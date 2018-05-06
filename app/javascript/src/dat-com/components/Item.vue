@@ -2,7 +2,7 @@
   <div class='mon-item'>
     {{ item.name }}
     <!-- <button>Edit</button> -->
-    <button @click="removeMon(item)">Delete</button>
+    <button v-if="isAdmin" @click="removeMon(item)">Delete</button>
 
     <button @click="setMon(item.name)" v-if="!selected">Select</button>
     <!-- <button @click="unsetMon(item)">Unselect</button> -->
@@ -35,9 +35,11 @@ export default {
 
       this.$store.dispatch('add_order', postData)
 
+      let todayNumber = (new Date()).getUTCDate()
+      let ranTodayKey = "RAND-ORDER-" + todayNumber
       let order_data = {}
       let updates = {}
-      let ref_order = firebase.database().ref().child('orders')
+      let ref_order = firebase.database().ref().child('orders/'+ranTodayKey)
 
       order_data[current_user] = item
       ref_order.update(order_data)
@@ -68,6 +70,10 @@ export default {
 
     current_user(){
       return this.$store.getters.current_user
+    },
+
+    isAdmin(){
+      return this.$store.getters.isAdmin
     }
   }
 }
