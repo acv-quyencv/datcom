@@ -4,9 +4,7 @@ class HomeController < ApplicationController
   def index
   end
 
-  def login
-  end
-
-  def chat
-  end
+  # TODO
+  # def chat
+  # end
 end
