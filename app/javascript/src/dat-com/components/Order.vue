@@ -1,6 +1,7 @@
 <template>
   <div class='order'>
     <h1>Order</h1>
+    <!-- <p style='color: #ff9800'>Mọi người đã đặt xong !</p> -->
     <ul>
       <li v-for="(v, k) in orders" :key="k">
          {{k}} : {{v}}
@@ -34,3 +35,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.order{
+  h1{
+    color: #ff9800;
+    text-align: right;
+  }
+}
+</style>

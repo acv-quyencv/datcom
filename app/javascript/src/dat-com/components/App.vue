@@ -1,9 +1,11 @@
 <template>
   <div class='ds-wrapper'>
     <div class='left-section column'>
-      <login />
-      <mon-an />
-      <add-new />
+      <div class="inside-wrap">
+        <login />
+        <mon-an />
+        <add-new />
+      </div>
     </div>
 
     <div class="right-section column">
@@ -33,6 +35,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+body{
+  font-family: 'Josefin Sans', sans-serif;
+}
+.ds-wrapper{
+  font-family: 'Josefin Sans', sans-serif;
+}
 .ds-wrapper:after{
   content: "";
   display: table;
@@ -40,6 +48,18 @@ export default {
 }
 .column{
   float: left;
-  width: 50%;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 45%;
+}
+.column.left-section {
+  background: #a0daa4;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 1px 5px -2px rgba(0,0,0,0.48);
+  -moz-box-shadow: 5px 1px 5px -2px rgba(0,0,0,0.48);
+  box-shadow: 5px 1px 5px -2px rgba(0,0,0,0.48);
+  .inside-wrap{
+    padding: 25px;
+  }
 }
 </style>

@@ -1,8 +1,9 @@
 <template>
   <div class='ds-mon_an'>
-    <h1>DS mon</h1>
+    <h1>Chọn món</h1>
     <ul>
-      <li v-for="mon in dsMon" :key="mon" >
+      <li v-for="mon in dsMon" :key="mon.key">
+        <span class='mon-icon'><i><img src="assets/mon_an.png" alt=""></i></span>
         <item :item="mon"/>
       </li>
     </ul>
@@ -24,3 +25,21 @@ export default {
   }
 }
 </script>
+
+<style lang='scss' scoped>
+.ds-mon_an{
+  li{
+    padding: 20px 0;
+    span.mon-icon{
+      display: inline-block;
+      img{
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .mon-item{
+      display: inline-block;
+    }
+  }
+}
+</style>

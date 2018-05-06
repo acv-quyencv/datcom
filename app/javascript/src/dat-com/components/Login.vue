@@ -1,19 +1,15 @@
 <template>
   <div class='login'>
-    <h1> Login </h1>
-     <select v-model="user.name">
+    <h1> Who are you ? </h1>
+     <select v-model="user.name" @change="login">
         <option value=""> --- Select name --- </option>
-        <option v-for="(name, index) in users"
-                :value="name"
-                :key="index">
-          {{name}}
+        <option v-for="(val,key) in users"
+                :value="key"
+                :key="key">
+          {{val}}
          </option>
      </select>
-     <input type="password" v-model="user.password">
-     <button @click="login">Login</button>
-
-     <h1>Current User</h1>
-     <p>{{current_user}}</p>
+     <p>Your using name: <span class='current-user' style="color: #ff5722; font-size: 1.5em">{{current_user}}</span></p>
   </div>
 </template>
 
@@ -29,7 +25,6 @@ export default {
   methods: {
     login(){
       this.$store.dispatch('login', this.user['name'])
-      this.user = {}
     }
   },
 

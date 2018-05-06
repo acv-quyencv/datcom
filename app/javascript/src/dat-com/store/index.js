@@ -6,12 +6,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store ({
   state: {
-    users: [
-      'quyencv',
-      'tamht',
-      'quy',
-      'loan'
-    ],
+    users: {
+      loanntk: 'Kim Loan',
+      quynt: 'Nguyễn T. Quý',
+      binhvh: 'Võ H. Bình'
+    },
     ready_user: [],
     unready_user: [],
     current_user: '',
@@ -22,6 +21,7 @@ export default new Vuex.Store ({
   },
 
   mutations: {
+    // not use when using firebase
     ADD_NEW(state, mon){
       state.dsMon.push(mon)
     },
@@ -39,7 +39,7 @@ export default new Vuex.Store ({
       if(state.ready_user.indexOf(nameUser) === -1){
         state.ready_user.push(nameUser)
       }
-      state.unready_user = state.users.filter(function(x) {
+      state.unready_user = Object.keys(state.users).filter(function(x) {
         return state.ready_user.indexOf(x) < 0
       })
 
@@ -61,15 +61,14 @@ export default new Vuex.Store ({
       state.orders = orders || {}
       state.unready_user = state.ready_user = []
 
-      // Update status
-      state.users.forEach((el, index) => {
-        console.log(Object.keys(state.orders).indexOf(el))
-        if(Object.keys(state.orders).indexOf(el) > -1){
-          state.ready_user.push(el)
+      for(let user in state.users){
+        console.log(user)
+        if(Object.keys(state.orders).indexOf(user) > -1){
+          state.ready_user.push(user)
         }
-      })
+      }
 
-      state.unready_user = state.users.filter(function(x) {
+      state.unready_user = (Object.keys(state.users)).filter(function(x) {
         return state.ready_user.indexOf(x) < 0
       })
 
@@ -86,6 +85,7 @@ export default new Vuex.Store ({
   },
 
   actions : {
+    // not use when using firebase
     add_new({commit}, mon){
       commit('ADD_NEW', mon)
     },
