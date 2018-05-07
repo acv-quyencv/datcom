@@ -7,9 +7,20 @@ Vue.use(Vuex)
 export default new Vuex.Store ({
   state: {
     users: {
-      loanntk: 'Kim Loan',
-      quynt: 'Nguyễn T. Quý',
-      binhvh: 'Võ H. Bình'
+      quyNT: 'Nguyễn T. Quý',
+      binhVH: 'Võ H. Bình',
+      loanNTK: 'Kim Loan',
+      quaNT: 'Phạm T. Quả',
+      quyLT: 'Lê Trọng Quý',
+      quyenCV: 'C.V Quyền',
+      thangHM: 'Hoàng Minh Thắng',
+      thanLD: 'Lê Đình Thận',
+      tamHC: 'Huỳnh Chí Tâm',
+      tamLH: 'Lê Hoàng Tâm',
+      tuanND: 'Nguyễn Duy Tuấn',
+      toanND: 'Nguyễn Đức Toàn',
+      cuongND: 'Nguyễn Đinh Cường',
+
     },
     ready_user: [],
     unready_user: [],
