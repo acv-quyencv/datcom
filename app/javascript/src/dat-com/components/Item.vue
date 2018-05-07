@@ -19,7 +19,7 @@ export default {
   methods: {
     setMon(item){
       if(this.current_user === ''){
-        alert('Please login!')
+        alert('Please select name!')
         return
       }
 
