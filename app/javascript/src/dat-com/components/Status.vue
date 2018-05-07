@@ -69,6 +69,13 @@ export default {
       font-weight: bold;
       color: #e8035f;
     }
+    li{
+      display: list-item;
+      span{
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
   }
   .not-ready-users{
     background: #f9decd;
@@ -77,6 +84,13 @@ export default {
     -webkit-box-shadow: 1px 6px 5px -2px rgba(0,0,0,0.48);
     -moz-box-shadow: 1px 6px 5px -2px rgba(0,0,0,0.48);
     box-shadow: 1px 6px 5px -2px rgba(0,0,0,0.48);
+    li{
+      display: list-item;
+      span{
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
   }
 }
 </style>

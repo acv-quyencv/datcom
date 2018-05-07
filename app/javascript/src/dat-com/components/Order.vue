@@ -21,12 +21,11 @@ export default {
 
   mounted() {
     var cur_el = this
-    let todayNumber = (new Date()).getUTCDate()
+    let todayNumber = (new Date()).getDate()
     let ranTodayKey = "RAND-ORDER-" + todayNumber
     const ref_orders = firebase.database().ref().child('orders/'+ranTodayKey)
 
     ref_orders.on('value', function (snap) {
-      console.log(snap.val())
       // user = snap.val(); // Keep the local user object synced with the Firebase userRef
       cur_el.$store.dispatch('load_order', snap.val())
     })

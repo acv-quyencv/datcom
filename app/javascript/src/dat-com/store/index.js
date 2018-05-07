@@ -63,7 +63,6 @@ export default new Vuex.Store ({
       state.unready_user = state.ready_user = []
 
       for(let user in state.users){
-        console.log(user)
         if(Object.keys(state.orders).indexOf(user) > -1){
           state.ready_user.push(user)
         }

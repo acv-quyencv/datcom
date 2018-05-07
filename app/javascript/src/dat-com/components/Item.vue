@@ -35,7 +35,7 @@ export default {
 
       this.$store.dispatch('add_order', postData)
 
-      let todayNumber = (new Date()).getUTCDate()
+      let todayNumber = (new Date()).getDate()
       let ranTodayKey = "RAND-ORDER-" + todayNumber
       let order_data = {}
       let updates = {}

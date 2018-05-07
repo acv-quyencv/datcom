@@ -30,8 +30,10 @@ export default {
 .ds-mon_an{
   li{
     padding: 20px 0;
+    display: list-item;
     span.mon-icon{
       display: inline-block;
+      vertical-align: middle;
       img{
         width: 20px;
         height: 20px;
