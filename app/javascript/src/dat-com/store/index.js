@@ -11,15 +11,15 @@ export default new Vuex.Store ({
       binhVH: 'Võ H. Bình',
       loanNTK: 'Kim Loan',
       quaNT: 'Phạm T. Quả',
-      quyLT: 'Lê Trọng Quý',
+      quyLT: 'Lê T. Quí',
       quyenCV: 'C.V Quyền',
-      thangHM: 'Hoàng Minh Thắng',
-      thanLD: 'Lê Đình Thận',
-      tamHC: 'Huỳnh Chí Tâm',
-      tamLH: 'Lê Hoàng Tâm',
-      tuanND: 'Nguyễn Duy Tuấn',
-      toanND: 'Nguyễn Đức Toàn',
-      cuongND: 'Nguyễn Đinh Cường',
+      thangHM: 'Hoàng M. Thắng',
+      thanLD: 'Lê Đ. Thận',
+      tamHC: 'Huỳnh C. Tâm',
+      tamLH: 'Lê H. Tâm',
+      tuanND: 'Đặng N. Tuấn',
+      toanND: 'Nguyễn Đ. Toàn',
+      cuongND: 'Nguyễn Đ. Cường',
 
     },
     ready_user: [],
@@ -56,7 +56,7 @@ export default new Vuex.Store ({
       })
 
       // Update current_user = nil
-      state.current_user = ''
+      // state.current_user = ''
 
     },
 
@@ -124,7 +124,6 @@ export default new Vuex.Store ({
     check_admin({commit}, isAdmin){
       commit('CHECK_ADMIN', isAdmin)
     }
-
   },
 
   getters: {

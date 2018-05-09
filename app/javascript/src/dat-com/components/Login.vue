@@ -9,7 +9,7 @@
           {{val}}
          </option>
      </select>
-     <p>Your using name: <span class='current-user' style="color: #ff5722; font-size: 1.5em">{{current_user}}</span></p>
+     <p>You using name: <span class='current-user' style="color: #ff5722; font-size: 1.5em">{{users[current_user]}}</span></p>
   </div>
 </template>
 

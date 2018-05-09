@@ -4,7 +4,9 @@
     <!-- <button>Edit</button> -->
     <button v-if="isAdmin" @click="removeMon(item)">Delete</button>
 
-    <button @click="setMon(item.name)" v-if="!selected">Select</button>
+    <!-- <button @click="setMon(item.name)" v-if="!selected">Select</button> -->
+    <button @click="setMon(item.name)">Select</button>
+
     <!-- <button @click="unsetMon(item)">Unselect</button> -->
   </div>
 </template>

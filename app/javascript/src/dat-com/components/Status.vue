@@ -4,9 +4,10 @@
     <p>Ready:</p>
       <ul class='ready-users'>
         <li v-for="(user, index) in ready_user"
-            :key="index">
+            :key="index"
+            :class="{'cur-select': current_user == user}">
             <span><img class="user-icon" src="assets/users.png" alt=""></span>
-            {{user}}
+            {{users[user]}}
             <span class='order-mon'> - {{orders[user]}}</span>
         </li>
       </ul>
@@ -16,7 +17,7 @@
         <li v-for="(user, index) in unready_user"
             :key="index">
             <span><img class='user-icon' src="assets/users.png" alt=""></span>
-            {{user}}
+            {{users[user]}}
         </li>
     </ul>
   </div>
@@ -36,6 +37,14 @@ export default {
 
     orders() {
       return this.$store.getters.orders
+    },
+
+    users() {
+      return this.$store.getters.users
+    },
+
+    current_user(){
+      return this.$store.getters.current_user
     }
   }
 }
@@ -45,6 +54,9 @@ export default {
 .order-status{
   li{
     padding: 5px 0;
+  }
+  li.cur-select{
+    background: #daef14;
   }
   img.user-icon{
     width: 16px;
