@@ -20,6 +20,8 @@ export default new Vuex.Store ({
       tuanND: 'Đặng N. Tuấn',
       toanND: 'Nguyễn Đ. Toàn',
       cuongND: 'Nguyễn Đ. Cường',
+      minhHC: 'Hồ C. Minh',
+      hungPV: 'Phan V. Hưng'
 
     },
     ready_user: [],
