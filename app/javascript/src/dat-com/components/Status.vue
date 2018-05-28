@@ -3,12 +3,25 @@
     <h1 class='big-title'>Status</h1>
     <p>Ready:</p>
       <ul class='ready-users'>
-        <li v-for="(user, index) in ready_user"
+        <!-- <li v-for="(user, index) in ready_user"
             :key="index"
             :class="{'cur-select': current_user == user}">
             <span><img class="user-icon" src="assets/users.png" alt=""></span>
             {{users[user]}}
             <span class='order-mon'> - {{orders[user]}}</span>
+        </li> -->
+        <li v-for="(mon, index) in dsMon"
+            :key='index' >
+
+          <span class='order-mon'> {{ mon.name }} </span>
+          <ul>
+            <li v-for="(user, index) in ready_user"
+                :key='index'
+                v-if="orders[user] == mon.name"
+                :class="{'cur-select': current_user == user}">
+              <span ><img class="user-icon" src="assets/users.png" alt=""> - {{ users[user] }}</span>
+            </li>
+          </ul>
         </li>
       </ul>
     <br>
@@ -45,7 +58,11 @@ export default {
 
     current_user(){
       return this.$store.getters.current_user
-    }
+    },
+
+    dsMon(){
+      return this.$store.getters.dsMon
+    },
   }
 }
 </script>
