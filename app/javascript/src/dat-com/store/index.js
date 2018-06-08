@@ -24,7 +24,8 @@ export default new Vuex.Store ({
       hungPV: 'Phan V. Hưng',
       duongBV: 'Bùi Văn Dương',
       duyH: 'Hoàng Duy',
-      tuongNT: 'Trọng Tường'
+      tuongNT: 'Trọng Tường',
+      huuTr: 'Trọng Hữu'
 
     },
     ready_user: [],
