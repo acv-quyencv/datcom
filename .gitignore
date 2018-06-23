@@ -30,3 +30,5 @@ yarn-debug.log*
 functions/node_modules
 functions/package-lock.json
 .firebaserc
+
+.env
