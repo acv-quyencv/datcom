@@ -1,0 +1,11 @@
+#login_page
+  #login_form
+    = form_with model: User.new, url: login_path do |form|
+      .group-input
+        = form.label :nickname
+        = form.text_field :nickname
+      .group-input
+        = form.label :password
+        = form.password_field :password
+      .btn-submit
+        = form.submit 'Login'

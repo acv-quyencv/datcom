@@ -1,0 +1,20 @@
+#login_page{
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  #login_form{
+    -webkit-box-shadow: -1px 6px 23px 0px rgba(166,159,166,1);
+    -moz-box-shadow: -1px 6px 23px 0px rgba(166,159,166,1);
+    box-shadow: -1px 6px 23px 0px rgba(166,159,166,1);
+    width: 30%;
+    padding: 100px;
+    background: #afeaaf;
+    margin: 0 auto;
+    margin-top: 100px;
+    .group-input{
+      padding-bottom: 20px;
+      label{
+        padding: 20px;
+      }
+    }
+  }
+}
