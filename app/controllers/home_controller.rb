@@ -7,4 +7,6 @@ class HomeController < ApplicationController
   # TODO
   # def chat
   # end
+  def money
+  end
 end
