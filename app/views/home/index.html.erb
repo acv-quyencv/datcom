@@ -1,0 +1,22 @@
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "<%= ENV['FIREBASE_API_KEY'] %>",
+    authDomain: "<%= ENV['FIREBASE_AUTH_DOMAIN'] %>",
+    databaseURL: "<%= ENV['FIREBASE_DB_URL'] %>",
+    projectId: "datcom-115d9",
+    storageBucket: "",
+    messagingSenderId: "268876521580"
+  };
+  // window.firebase = firebase.initializeApp(config);
+  firebase.initializeApp(config);
+
+</script>
+
+<%= javascript_pack_tag 'dat_com' %>
+<%= stylesheet_pack_tag 'dat_com' %>
+
+<div id="dat_com"> </div>
+
