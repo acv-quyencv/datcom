@@ -26,11 +26,16 @@ export default {
       }
 
       var confirmSelect = confirm("Hi -----  " + this.current_user + "\n" + "Bạn chắc muốn ăn món ----- " + item);
-      if(!confirmSelect){ return false }
+      if(!confirmSelect) { return false }
 
+      let date = new Date
+      let _h_date = date.getHours()
+      let _m_date = date.getMinutes()
+      let _s_date = date.getSeconds()
+      let time =  `${_h_date}:${_m_date}:${_s_date}`
       let postData = {
         key: this.current_user,
-        val: item
+        val: item,
       }
 
       let current_user = this.current_user
@@ -39,12 +44,16 @@ export default {
 
       let todayNumber = (new Date()).getDate()
       let ranTodayKey = "RAND-ORDER-" + todayNumber
+      let ranUserKey = current_user + date.getTime()
       let order_data = {}
       let updates = {}
       let ref_order = firebase.database().ref().child('orders/'+ranTodayKey)
 
-      order_data[current_user] = item
-      ref_order.update(order_data)
+      order_data['mon'] = item
+      order_data['time'] = time
+
+      updates['/' + current_user] = order_data
+      ref_order.update(updates)
 
       // let newPostKey = firebase.database().ref().child('orders').push().key
       // updates['/orders/' + 'list_orders'] = { 'ad' : 'sdsd'}

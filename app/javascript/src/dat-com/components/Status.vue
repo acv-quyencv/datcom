@@ -17,9 +17,10 @@
           <ul>
             <li v-for="(user, index) in ready_user"
                 :key='index'
-                v-if="orders[user] == mon.name"
+                v-if="orders[user]['mon'] == mon.name"
                 :class="{'cur-select': current_user == user}">
-              <span ><img class="user-icon" src="assets/users.png" alt=""> - {{ users[user] }}</span>
+              <span><img class="user-icon" src="assets/users.png" alt=""> - {{ users[user] }}</span>
+              <span class='timeSet'> {{ orders[user]['time'] }} </span>
             </li>
           </ul>
         </li>
@@ -104,6 +105,10 @@ export default {
         display: inline-block;
         vertical-align: middle;
       }
+    }
+    span.timeSet {
+      color: gray;
+      font-size: 0.8em;
     }
   }
   .not-ready-users{

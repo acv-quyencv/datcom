@@ -91,11 +91,12 @@ export default new Vuex.Store ({
 
       // Update count_orders
       state.count_orders = {}
-      Object.values(state.orders).forEach((el, index) => {
-        if(el in state.count_orders){
-          Vue.set(state.count_orders, el, state.count_orders[el] + 1)
+      Object.keys(state.orders).forEach((el, index) => {
+        let mon = state.orders[el]['mon']
+        if(mon in state.count_orders){
+          Vue.set(state.count_orders, mon, state.count_orders[mon] + 1)
         }else{
-          Vue.set(state.count_orders, el, 1)
+          Vue.set(state.count_orders, mon, 1)
         }
       })
     },
